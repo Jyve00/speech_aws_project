@@ -56,7 +56,7 @@ def load_speechcommands_item(filepath: str, path: str) -> Tuple[Tensor, int, str
     return waveform, sample_rate, label, speaker_id, utterance_number
 
 
-[docs]class SPEECHCOMMANDS(Dataset):
+class SPEECHCOMMANDS(Dataset):
     """Create a Dataset for Speech Commands.
 
     Args:
@@ -135,7 +135,7 @@ def load_speechcommands_item(filepath: str, path: str) -> Tuple[Tensor, int, str
             walker = sorted(str(p) for p in Path(self._path).glob('*/*.wav'))
             self._walker = [w for w in walker if HASH_DIVIDER in w and EXCEPT_FOLDER not in w]
 
-[docs]    def __getitem__(self, n: int) -> Tuple[Tensor, int, str, str, int]:
+    def __getitem__(self, n: int) -> Tuple[Tensor, int, str, str, int]:
         """Load the n-th sample from the dataset.
 
         Args:
